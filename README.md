@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+First we need to add some users.
+Then add some tickets. Each ticket will check if the user has enabled the reminders. and check the current ticket due date and at which date it sould be sent. Note this behaviour run inside a background jobs.
 
-Things you may want to cover:
+Then create another job for this date at the selected user time and zone if the job not exists. this new job will send the notifications if the user still have tickets on the target due_date. 
 
-* Ruby version
+We track created jobs on each due date on another model called TicketsReminders
 
-* System dependencies
+If we changed any reminders options at user then we overwrite all exists jobs and create another ones. Each sender job should check the latest job ID on TicketsReminders record if they are not the same, then the job has been overwritten and it will stop.
 
-* Configuration
+The same happens with the Tickets changes (due_date or assignee). but in this case the code will create a sender job for the current due date only if it is not exist.
 
-* Database creation
+you need to install redis and run the redis server before creating anything
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+As an improvment we may add another daily scheduler to clean outdated TicketsReminders records
