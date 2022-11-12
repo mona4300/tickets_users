@@ -24,7 +24,6 @@ class Ticket < ApplicationRecord
   protected
 
   def sync_tickets_reminders
-    byebug
     options = previous_changes.keys.intersection(%w[user_id due_date])
     return if options.blank?
     

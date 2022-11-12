@@ -11,6 +11,6 @@ If we changed any reminders options at user then we overwrite all exists jobs an
 
 The same happens with the Tickets changes (due_date or assignee). but in this case the code will create a sender job for the current due date only if it is not exist.
 
-you need to install redis and run the redis server before creating anything
+you need to install redis and run the redis server before creating anything. then start sidekiq process
 
 As an improvment we may add another daily scheduler to clean outdated TicketsReminders records

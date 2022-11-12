@@ -7,7 +7,6 @@ class SendReminder
   end
 
   def send
-    byebug
     tickets_count = user.tickets.where(due_date: due_date).count
 
     return if tickets_count.zero?

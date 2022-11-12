@@ -8,7 +8,6 @@ class SyncUserRemindersHandler < SyncRemindersHandler
   end
 
   def sync
-    byebug
     if !user.send_due_date_reminder
       user.tickets_reminders.delete_all if user.tickets_reminders.exists?
       return

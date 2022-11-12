@@ -30,7 +30,6 @@ class User < ApplicationRecord
   protected
 
   def sync_tickets_reminders
-    byebug
     options = previous_changes.keys.intersection(reminder_options)
     return if options.blank?
 

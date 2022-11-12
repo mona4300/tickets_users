@@ -17,7 +17,6 @@ class SyncRemindersHandler
   end
 
   def schedule_reminder(due_date, create_only = false)
-    byebug
     job_due_date = due_date
     job_due_date -= 1.day if user.due_date_reminder_interval == 1
 
