@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                         :integer          not null, primary key
+#  name                       :string
+#  email                      :string
+#  send_due_date_reminder     :boolean
+#  due_date_reminder_time     :time
+#  due_date_reminder_interval :integer
+#  timezone                   :string
+#  created_at                 :datetime         not null
+#  updated_at                 :datetime         not null
+#
+
+one:
+  name: MyString
+  email: MyString
+  send_due_date_reminder: false
+  due_date_reminder_time: 2022-11-12 10:55:02
+  due_date_reminder_interval: 1
+  timezone: MyString
+
+two:
+  name: MyString
+  email: MyString
+  send_due_date_reminder: false
+  due_date_reminder_time: 2022-11-12 10:55:02
+  due_date_reminder_interval: 1
+  timezone: MyString
