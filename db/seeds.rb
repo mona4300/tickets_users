@@ -20,7 +20,14 @@ ticket_1 = user_1.tickets.create!(
 
 ticket_2 = user_1.tickets.create!(
   title: 'Ticket 2', description: 'Ticket Description 2',
-  due_date: Date.tomorrow, status_id: 2
+  due_date: Date.tomorrow, status_id: 2,
+  progress: 30, user_id: user_1.id
+)
+
+
+ticket_3 = user_1.tickets.create!(
+  title: 'Ticket 3', description: 'Ticket Description 3',
+  due_date: Date.tomorrow, status_id: 2,
   progress: 30, user_id: user_1.id
 )
 

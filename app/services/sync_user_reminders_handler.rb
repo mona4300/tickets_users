@@ -9,7 +9,10 @@ class SyncUserRemindersHandler < SyncRemindersHandler
 
   def sync
     byebug
-    return user.tickets_reminders.delete_all if reminders_disabled?
+    if !user.send_due_date_reminder
+      user.tickets_reminders.delete_all if user.tickets_reminders.exists?
+      return
+    end
 
     changed_options.delete('send_due_date_reminder')
     return if changed_options.blank?
@@ -31,11 +34,5 @@ class SyncUserRemindersHandler < SyncRemindersHandler
     future_tickets.each do |future_ticket|
       schedule_reminder(future_ticket.due_date)
     end
-  end
-
-  protected 
-
-  def reminders_disabled?
-    !user.send_due_date_reminder && user.tickets_reminders.exists?
   end
 end
