@@ -52,10 +52,12 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "shoulda-matchers"
+  gem 'byebug'
+  gem 'rspec-rails'
 end
 
 group :development do
-  gem 'byebug'
   gem 'annotate'
   
   # Use console on exceptions pages [https://github.com/rails/web-console]
